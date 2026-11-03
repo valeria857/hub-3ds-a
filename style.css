@@ -1,0 +1,202 @@
+:root {
+  color-scheme: dark;
+  --color-fondo: #080b14;
+  --color-superficie: rgba(17, 23, 39, 0.88);
+  --color-superficie-hover: #171f33;
+  --color-borde: rgba(127, 154, 204, 0.17);
+  --color-texto: #f2f5ff;
+  --color-texto-suave: #a4afc6;
+  --color-azul: #78a8ff;
+  --color-cian: #62e7f2;
+  --color-neon: #8dffcf;
+  --ancho-contenido: 1080px;
+  --radio-tarjeta: 20px;
+  --sombra-tarjeta: 0 18px 48px rgba(0, 0, 0, 0.25);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-texto);
+  background:
+    radial-gradient(ellipse at 50% -18%, rgba(52, 97, 185, 0.28), transparent 58%),
+    radial-gradient(ellipse at 100% 58%, rgba(33, 117, 137, 0.09), transparent 35%),
+    var(--color-fondo);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(4.5rem, 12vw, 8.5rem) 1.25rem clamp(3.5rem, 9vw, 6rem);
+  text-align: center;
+  border-bottom: 1px solid rgba(127, 154, 204, 0.12);
+}
+
+header::before {
+  position: absolute;
+  z-index: -1;
+  top: 1.5rem;
+  left: 50%;
+  width: min(42rem, 90vw);
+  height: min(22rem, 55vw);
+  border: 1px solid rgba(98, 231, 242, 0.08);
+  border-radius: 50%;
+  box-shadow:
+    0 0 90px rgba(71, 130, 255, 0.1),
+    inset 0 0 70px rgba(98, 231, 242, 0.04);
+  content: "";
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 9vw, 5.75rem);
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  line-height: 1;
+  background: linear-gradient(110deg, #f5f8ff 22%, var(--color-azul) 58%, var(--color-cian));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin: 1.25rem 0 0;
+  color: var(--color-texto-suave);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  letter-spacing: 0.015em;
+}
+
+header p + p {
+  margin-top: 0.6rem;
+  color: #78859e;
+  font-size: 0.9rem;
+}
+
+main {
+  width: min(100% - 2.5rem, var(--ancho-contenido));
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+  flex: 1;
+}
+
+main section > h2 {
+  margin: 0 0 1.75rem;
+  color: var(--color-texto);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+#lista-modulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.25rem;
+}
+
+.tarjeta-modulo {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(1.4rem, 4vw, 1.8rem);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+  background:
+    linear-gradient(145deg, rgba(28, 39, 62, 0.48), transparent 62%),
+    var(--color-superficie);
+  box-shadow: var(--sombra-tarjeta);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.tarjeta-modulo::before {
+  position: absolute;
+  top: 0;
+  left: 1.8rem;
+  width: 3.25rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-cian), var(--color-neon));
+  content: "";
+  box-shadow: 0 0 16px rgba(98, 231, 242, 0.55);
+}
+
+.tarjeta-modulo:hover {
+  transform: translateY(-4px);
+  border-color: rgba(98, 231, 242, 0.38);
+  background-color: var(--color-superficie-hover);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.34), 0 0 30px rgba(70, 145, 220, 0.08);
+}
+
+.tarjeta-modulo h3 {
+  margin: 0 0 0.75rem;
+  color: var(--color-texto);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.tarjeta-modulo p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta-modulo p + p {
+  margin-top: 0.75rem;
+  color: #c5cee0;
+}
+
+footer {
+  padding: 1.5rem 1.25rem;
+  border-top: 1px solid rgba(127, 154, 204, 0.12);
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  color: #78859e;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 540px) {
+  main {
+    width: min(100% - 2rem, var(--ancho-contenido));
+  }
+
+  #lista-modulos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .tarjeta-modulo:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
