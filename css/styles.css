@@ -286,10 +286,57 @@ h4 {
   background: var(--superficie);
   border: 1px solid var(--linea);
   border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.tarjeta:hover {
+  border-color: var(--acento);
 }
 
 .tarjeta.hecho {
   border-color: var(--acento);
+}
+
+.abrir-modulo {
+  align-self: flex-start;
+  margin-top: 0.75rem;
+}
+
+#modal-modulo {
+  width: min(760px, calc(100% - 2rem));
+  max-height: min(90vh, 900px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  border-radius: 16px;
+  box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 30%);
+}
+
+#modal-modulo::backdrop {
+  background: rgb(8 16 22 / 70%);
+  backdrop-filter: blur(2px);
+}
+
+.modal-encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem 0.5rem;
+}
+
+.modal-encabezado h2 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+.modal-contenido {
+  max-height: calc(min(90vh, 900px) - 6rem);
+  padding: 0 1.4rem 1.4rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .cabecera-tarjeta {

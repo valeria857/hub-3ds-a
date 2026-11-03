@@ -12,6 +12,7 @@ const estadisticaProgreso = document.querySelector("#stat-progreso");
 const botonTema = document.querySelector("#tema");
 const botonReiniciar = document.querySelector("#reiniciar");
 const integrantes = document.querySelector("#integrantes");
+const modalModulo = document.querySelector("#modal-modulo");
 
 if (!Array.isArray(MODULOS) || !Array.isArray(EQUIPO)) {
   throw new Error("No se encontraron los datos del portal en data/modulos.js.");
@@ -20,7 +21,7 @@ if (!Array.isArray(MODULOS) || !Array.isArray(EQUIPO)) {
 if (
   !lista || !conteo || !buscar || !categoria || !estado || !barraProgreso ||
   !textoProgreso || !estadisticaModulos || !estadisticaProgreso ||
-  !botonTema || !botonReiniciar || !integrantes
+  !botonTema || !botonReiniciar || !integrantes || !(modalModulo instanceof HTMLDialogElement)
 ) {
   throw new Error("Faltan elementos requeridos para iniciar el portal.");
 }
@@ -218,6 +219,8 @@ function textoBuscable(modulo) {
 function crearTarjeta(modulo) {
   const tarjeta = el("article", "tarjeta");
   tarjeta.id = `tarjeta-${modulo.id}`;
+  tarjeta.dataset.moduloId = modulo.id;
+  tarjeta.tabIndex = -1;
   const estaCompletado = completados.has(modulo.id);
   if (estaCompletado) tarjeta.classList.add("hecho");
 
@@ -233,17 +236,45 @@ function crearTarjeta(modulo) {
   tarjeta.append(el("h3", "", modulo.nombre));
   tarjeta.append(el("p", "", modulo.resumen));
   tarjeta.append(el("p", "docente", `Docente: ${modulo.docente} · Responsable: ${modulo.responsable}`));
-  agregarGrupo(tarjeta, "Lo que aprendí", modulo.aprendi, "aprendizajes-grupo");
-  agregarGrupo(tarjeta, "Instrumentos", modulo.instrumentos, "grupo-chips");
-  agregarGrupo(tarjeta, "Programas", modulo.programas, "grupo-chips");
-  agregarGrupo(tarjeta, "Herramientas", modulo.herramientas, "grupo-chips");
-  agregarGrupo(tarjeta, "Recursos", modulo.recursos, "grupo-chips");
+
+  const botonDetalles = el("button", "boton boton-sec chico abrir-modulo", "Abrir módulo");
+  botonDetalles.type = "button";
+  tarjeta.append(botonDetalles);
+  return tarjeta;
+}
+
+// Muestra el contenido completo del módulo y su quiz en el diálogo.
+function abrirModalModulo(modulo, tarjeta) {
+  const encabezado = el("header", "modal-encabezado");
+  const titulo = el("h2", "", modulo.nombre);
+  titulo.id = "modal-titulo";
+  const botonCerrar = el("button", "boton boton-sec chico", "Cerrar");
+  botonCerrar.type = "button";
+  botonCerrar.addEventListener("click", () => modalModulo.close());
+  encabezado.append(titulo, botonCerrar);
+
+  const contenido = el("div", "modal-contenido");
+  const metadatos = el("p", "docente", `Módulo ${modulo.numero} · ${modulo.categoria}`);
+  contenido.append(
+    metadatos,
+    el("p", "", modulo.resumen),
+    el("p", "docente", `Docente: ${modulo.docente} · Responsable: ${modulo.responsable}`)
+  );
+  agregarGrupo(contenido, "Lo que aprendí", modulo.aprendi, "aprendizajes-grupo");
+  agregarGrupo(contenido, "Instrumentos", modulo.instrumentos, "grupo-chips");
+  agregarGrupo(contenido, "Programas", modulo.programas, "grupo-chips");
+  agregarGrupo(contenido, "Herramientas", modulo.herramientas, "grupo-chips");
+  agregarGrupo(contenido, "Recursos", modulo.recursos, "grupo-chips");
 
   const evidencia = el("p", "evidencia");
   evidencia.append(el("strong", "", "Evidencia final: "));
   evidencia.append(document.createTextNode(modulo.evidencia));
-  tarjeta.append(evidencia, crearQuiz(modulo));
-  return tarjeta;
+  contenido.append(evidencia, crearQuiz(modulo));
+
+  modalModulo.setAttribute("aria-labelledby", titulo.id);
+  modalModulo.replaceChildren(encabezado, contenido);
+  modalModulo.showModal();
+  modalModulo.addEventListener("close", () => tarjeta.focus(), { once: true });
 }
 
 // Filtra por texto, categoría y progreso, y luego actualiza la lista y el conteo.
@@ -296,6 +327,18 @@ function cargarTema() {
 buscar.addEventListener("input", pintarModulos);
 categoria.addEventListener("change", pintarModulos);
 estado.addEventListener("change", pintarModulos);
+
+lista.addEventListener("click", (evento) => {
+  const tarjeta = evento.target.closest(".tarjeta");
+  if (!tarjeta || !lista.contains(tarjeta)) return;
+
+  const modulo = MODULOS.find((elemento) => elemento.id === tarjeta.dataset.moduloId);
+  if (modulo) abrirModalModulo(modulo, tarjeta);
+});
+
+modalModulo.addEventListener("click", (evento) => {
+  if (evento.target === modalModulo) modalModulo.close();
+});
 
 botonReiniciar.addEventListener("click", () => {
   completados.clear();
