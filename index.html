@@ -3,30 +3,81 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portal educativo de repaso HUB 3DS·A.">
-    <title>HUB 3DS·A | Repaso educativo</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="data/modulos.js" defer></script>
-    <script src="app.js" defer></script>
+    <meta name="description" content="Memoria de repaso de Valeria Contreras, Lissett Menéndez y Jazmin Peña, 3.º DS «A»: módulos, programas, herramientas, instrumentos y quizzes del año.">
+    <meta name="color-scheme" content="light dark">
+    <title>Mi año en código · 3.º DS «A»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <header>
-      <h1>HUB 3DS·A</h1>
-      <p>Portal educativo de repaso</p>
-      <p>Un proyecto de Tatiana, Jazmín y Valeria</p>
+    <a class="salto" href="#modulos">Ir a los módulos</a>
+
+    <header class="barra">
+      <a class="marca" href="#inicio">Mi año en código</a>
+      <nav aria-label="Principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#equipo">Equipo</a>
+        <button id="tema" class="tema" type="button" aria-pressed="false">Modo oscuro</button>
+      </nav>
     </header>
 
     <main>
-      <section aria-labelledby="modulos-titulo">
-        <h2 id="modulos-titulo">Módulos de repaso</h2>
-        <div id="lista-modulos" aria-live="polite">
-          <!-- Las tarjetas de los módulos se renderizan desde JavaScript. -->
+      <section id="inicio" class="portada" aria-labelledby="titulo-principal">
+        <p class="etiqueta">Memoria 2026 · 3.º DS «A»</p>
+        <h1 id="titulo-principal">Mi año en código: lo que aprendí, módulo por módulo</h1>
+        <p>Explora cada módulo, revisa con qué programas y herramientas trabajamos, abre los recursos para seguir aprendiendo y responde el quiz para completarlo.</p>
+        <p class="datos"><span id="stat-modulos"></span> · <span id="stat-progreso"></span></p>
+        <a class="boton" href="#modulos">Ver los módulos</a>
+      </section>
+
+      <section id="modulos" aria-labelledby="t-modulos">
+        <h2 id="t-modulos">Contenido del curso</h2>
+        <p class="sub">Busca, filtra y completa los quizzes para avanzar.</p>
+
+        <div class="controles">
+          <div class="campo">
+            <label for="buscar">Buscar</label>
+            <input type="search" id="buscar" placeholder="Nombre, herramienta o tema">
+          </div>
+          <div class="campo">
+            <label for="categoria">Categoría</label>
+            <select id="categoria">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="estado">Progreso</label>
+            <select id="estado">
+              <option value="todos">Todos los módulos</option>
+              <option value="pendientes">Pendientes</option>
+              <option value="completados">Completados</option>
+            </select>
+          </div>
         </div>
+
+        <div class="progreso">
+          <progress id="barra-progreso" value="0" max="1" aria-labelledby="texto-progreso"></progress>
+          <span id="texto-progreso"></span>
+          <button id="reiniciar" class="boton boton-sec chico" type="button">Reiniciar progreso</button>
+        </div>
+        <p id="conteo" class="conteo" aria-live="polite"></p>
+        <div id="lista" class="lista"></div>
+      </section>
+
+      <section id="equipo" aria-labelledby="t-equipo">
+        <h2 id="t-equipo">Equipo</h2>
+        <ul id="integrantes" class="integrantes"></ul>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; HUB 3DS·A</p>
+    <footer class="pie">
+      <p>Instituto Nacional Cantón Lourdes (INDEL) · 3.º Bachillerato Técnico Vocacional en Desarrollo de Software «A»</p>
     </footer>
+
+    <script src="data/modulos.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
