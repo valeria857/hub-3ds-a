@@ -192,6 +192,49 @@ const MODULOS = [
     ]
   },
   {
+    id: "modulo-3-5",
+    responsable: "Lissett Menéndez",
+    numero: "3.5",
+    categoria: "Desarrollo móvil",
+    nombre: "Módulo 3.5: Desarrollo de componentes para dispositivos móviles",
+    docente: "Francisco Arcides Canales Sorto",
+    resumen: "Diseñé y desarrollé componentes para aplicaciones móviles, considerando interfaces táctiles, consumo de APIs y pruebas en emuladores para Android.",
+    aprendi: [
+      "Crear interfaces móviles táctiles y adaptables a distintos tamaños de pantalla.",
+      "Reconocer las opciones para desarrollar aplicaciones con Android, Flutter, React Native, Java y Kotlin.",
+      "Consumir APIs desde una app y probar su funcionamiento en un emulador."
+    ],
+    instrumentos: ["Computadora", "Dispositivo móvil Android", "Guía de práctica de desarrollo móvil", "Conexión a Internet"],
+    programas: ["Android Studio", "Visual Studio Code", "Flutter SDK", "Node.js", "Emulador de Android"],
+    herramientas: ["Android", "Flutter", "React Native", "Java", "Kotlin", "Interfaces táctiles", "Consumo de APIs REST", "Emuladores"],
+    recursos: [
+      { titulo: "Documentación para desarrolladores de Android", url: "https://developer.android.com/develop?hl=es-419" },
+      { titulo: "Documentación de Flutter", url: "https://docs.flutter.dev/" },
+      { titulo: "Documentación de React Native", url: "https://reactnative.dev/docs/getting-started" }
+    ],
+    evidencia: "Aplicación móvil o prototipo funcional con interfaz táctil, consumo de una API y pruebas documentadas en un emulador.",
+    quiz: [
+      {
+        pregunta: "¿Qué caracteriza a una interfaz táctil bien diseñada para una aplicación móvil?",
+        opciones: ["Controles pequeños y muy juntos para aprovechar la pantalla", "Controles fáciles de tocar, con espacio suficiente y respuestas claras", "Usar únicamente texto sin botones"],
+        correcta: 1,
+        explicacion: "Los controles accesibles y con respuesta visible facilitan la interacción en pantallas táctiles."
+      },
+      {
+        pregunta: "¿Para qué se consume una API desde una aplicación móvil?",
+        opciones: ["Para intercambiar datos o solicitar servicios a otro sistema", "Para aumentar el tamaño de los botones", "Para reemplazar el sistema operativo del teléfono"],
+        correcta: 0,
+        explicacion: "Una API permite que la aplicación obtenga o envíe datos a un servicio."
+      },
+      {
+        pregunta: "¿Cuál es una ventaja de probar una aplicación en un emulador?",
+        opciones: ["Permite simular un dispositivo y probar la app sin tener ese equipo físico", "Publica automáticamente la aplicación en una tienda", "Convierte cualquier lenguaje en Java"],
+        correcta: 0,
+        explicacion: "El emulador reproduce un entorno móvil para probar el comportamiento de la aplicación."
+      }
+    ]
+  },
+  {
     id: "modulo-3-6",
     responsable: "Valeria Contreras",
     numero: "3.6",
@@ -231,6 +274,49 @@ const MODULOS = [
         opciones: ["Antes de que el equipo falle, para evitar problemas", "Solo después de una falla", "Nunca, si el sistema funciona"],
         correcta: 0,
         explicacion: "Busca evitar fallas antes de que ocurran."
+      }
+    ]
+  },
+  {
+    id: "modulo-3-7",
+    responsable: "Valeria Contreras",
+    numero: "3.7",
+    categoria: "Emprendimiento",
+    nombre: "Módulo 3.7: Puesta en marcha de la microempresa en asociatividad cooperativa",
+    docente: "Francisco Arcides Canales Sorto",
+    resumen: "Formulé una propuesta de microempresa tecnológica mediante el modelo Canvas, un estudio de mercado y un plan de financiamiento, considerando los principios de la gestión cooperativa.",
+    aprendi: [
+      "Organizar una idea de negocio con los bloques del modelo Canvas.",
+      "Analizar clientes, competencia y demanda mediante un estudio de mercado.",
+      "Planificar recursos, costos y fuentes de financiamiento para una microempresa cooperativa."
+    ],
+    instrumentos: ["Computadora", "Plantilla del modelo Canvas", "Guía para estudio de mercado", "Calculadora"],
+    programas: ["Procesador de texto", "Hoja de cálculo", "Presentaciones", "Navegador web"],
+    herramientas: ["Modelo de negocio Canvas", "Emprendimiento tecnológico", "Estudio de mercado", "Gestión cooperativa", "Presupuesto y plan de financiamiento"],
+    recursos: [
+      { titulo: "Business Model Canvas (Strategyzer)", url: "https://www.strategyzer.com/library/the-business-model-canvas" },
+      { titulo: "Alianza Cooperativa Internacional: identidad cooperativa", url: "https://ica.coop/es/cooperativas/identidad-alianza-cooperativa-internacional" },
+      { titulo: "Guía de estudio de mercado (SBA)", url: "https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis" }
+    ],
+    evidencia: "Propuesta de microempresa tecnológica con modelo Canvas, resultados del estudio de mercado y plan de financiamiento para su puesta en marcha en forma cooperativa.",
+    quiz: [
+      {
+        pregunta: "¿Para qué sirve el modelo de negocio Canvas?",
+        opciones: ["Para representar de forma visual los elementos clave de un negocio", "Para registrar únicamente los ingresos diarios", "Para sustituir el estudio de mercado"],
+        correcta: 0,
+        explicacion: "Canvas organiza en bloques aspectos como clientes, propuesta de valor, actividades e ingresos."
+      },
+      {
+        pregunta: "¿Qué aporta un estudio de mercado antes de poner en marcha una microempresa?",
+        opciones: ["Permite conocer clientes, demanda y competencia para tomar decisiones", "Garantiza que el negocio no tendrá costos", "Define automáticamente la forma legal de la empresa"],
+        correcta: 0,
+        explicacion: "La información del mercado ayuda a validar la oportunidad y ajustar la propuesta."
+      },
+      {
+        pregunta: "¿Qué principio es importante en la gestión de una cooperativa?",
+        opciones: ["Las decisiones se concentran permanentemente en una sola persona", "Las personas asociadas participan de manera democrática en las decisiones", "Las utilidades se reparten sin considerar los acuerdos de las personas asociadas"],
+        correcta: 1,
+        explicacion: "La participación democrática de las personas asociadas es un principio cooperativo."
       }
     ]
   },
