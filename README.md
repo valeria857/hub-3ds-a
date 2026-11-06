@@ -1,87 +1,81 @@
-# Mi año en código — Memoria 3.º DS «A»
+#  Portal Web de Repaso Integral - 3.º DS «A»
 
-Portal educativo estático que reúne los aprendizajes, recursos y quizzes del
-año escolar del equipo de 3.º Bachillerato Técnico Vocacional en Desarrollo de
-Software «A» del Instituto Nacional Cantón Lourdes (INDEL).
+Bienvenido al portal web oficial de repaso académico del **3.º Bachillerato Técnico Vocacional en Desarrollo de Software «A»** del Instituto Nacional Cantón Lourdes (INDEL).
 
-## Portal público
+Esta plataforma centraliza la documentación, instrumentos, programas, herramientas, recursos web, evidencias prácticas y quizzes interactivos de los módulos técnicos y formativos desarrollados durante el año lectivo.
 
-[Abrir Mi año en código en GitHub Pages](https://valeria857.github.io/hub-3ds-a/)
+##  Integrantes del Equipo
 
-> La dirección corresponde al repositorio del proyecto. Si GitHub Pages aún no
-> está habilitado para la rama publicada, el sitio no estará disponible hasta
-> activar la publicación en la configuración del repositorio.
+* **Valeria Patricia Miranda Contreras**
 
-## Integrantes
+* **Tatiana Lissett Menéndez Mercado**
 
-| Integrante | Rol | Módulos |
-|---|---|---|
-| Valeria Contreras | Líder Git | 1 y 3.6 |
-| Lissett Menéndez | Diseño UI | 2 y 3.4 |
-| Jazmin Peña | Contenido y QA (compartido) | 3.3 y 3.8 |
+* **Alisson Jazmín Peña Cortéz**
 
-Los nombres de usuario de GitHub incluidos en `data/modulos.js` son valores de
-ejemplo. El equipo debe reemplazarlos por sus usuarios públicos antes de
-presentar el portal.
+##  Enlaces Públicos
 
-## Módulos del año
+* **Portal Web (GitHub Pages):** <https://valeria857.github.io/hub-3ds-a/>
 
-1. **Módulo 1:** Desarrollo de aplicaciones de software para la solución de problemas
-2. **Módulo 2:** Desarrollo de componentes para dispositivos móviles
-3. **Módulo 3.3:** Administración de Bases de Datos
-4. **Módulo 3.4:** Elaboración de documentación de Sistemas informáticos
-5. **Módulo 3.6:** Conversación en inglés sobre mantenimiento de sistemas informáticos
-6. **Módulo 3.8:** Proyecto innovador de Desarrollo de Software
+* **Repositorio en GitHub:** <https://github.com/valeria857/hub-3ds-a>
 
-## Funciones
+##  Características y Funcionalidades del Portal
 
-- Tarjetas de contenido generadas desde los datos de cada módulo.
-- Búsqueda sin distinción entre mayúsculas y minúsculas ni tildes.
-- Filtros combinables por categoría y progreso.
-- Recursos externos, aprendizajes, instrumentos, programas y herramientas.
-- Quizzes con retroalimentación inmediata y seguimiento del progreso.
-- Progreso y tema claro/oscuro guardados en el navegador cuando está disponible.
-- Diseño adaptable, navegación por teclado y etiquetas accesibles.
+###  Nivel Base
 
-## Estructura del proyecto
+* **Fichas Informativas por Módulo:** Detalle técnico completo (Módulos 1, 2, 3.1 al 3.8) con instrumentos, programas, herramientas, recursos verificados y enlaces a evidencias.
 
-```text
-index.html
-css/
-  styles.css
-js/
-  app.js
-data/
-  modulos.js
-bitacora/
-  PLANTILLA.md
-README.md
-```
+* **Diseño Responsivo:** Adaptado completamente a dispositivos móviles y pantallas de escritorio.
 
-El proyecto utiliza HTML5, CSS3 y JavaScript puro; no requiere frameworks,
-instalación de paquetes ni proceso de compilación. Para agregar o actualizar
-un módulo, edita `data/modulos.js`.
+* **Integración con GitHub Pages:** Despliegue automatizado y actualización continua mediante control de versiones.
 
-## Versiones
+###  Nivel Pro
 
-| Versión | Hito |
-|---|---|
-| v0.2 | Día 1 |
-| v0.5 | Día 2 |
-| v1.0 | Día 3 |
+* **Buscador y Filtros en Tiempo Real:** Filtrado dinámico por módulos y contenido.
 
-## Acuerdos de trabajo
+* **Quiz Interactivo:** Evaluación de 3 preguntas de opción múltiple por módulo con retroalimentación inmediata y registro del mejor puntaje mediante `localStorage`.
 
-- Usar mensajes de commit con el formato `tipo: qué cambió`.
-- Cada integrante trabaja en sus módulos y hace `git pull` antes de subir cambios.
-- Nunca subir contraseñas ni datos personales.
-- Revisar los textos y abrir los recursos para verificar que sigan vigentes.
+* **Modo Claro / Modo Oscuro:** Alternador de interfaz visual adaptado a la preferencia del usuario con persistencia en el navegador.
 
-## Registro de prompts de IA
+##  Tecnologías Utilizadas
 
-Anota aquí las instrucciones usadas, quién las escribió y qué se comprobó en la
-respuesta antes de incorporar cambios al proyecto.
+* **HTML5 Semantic Markup**
 
-| Fecha | Quién | Prompt | Qué me respondió y qué verifiqué |
-|---|---|---|---|
-|  |  |  |  |
+* **CSS3 Custom Properties (Variables CSS, Flexbox y Grid)**
+
+* **JavaScript Vanilla (ES6+ & Web Storage API)**
+
+* **Git & GitHub (Control de Versiones y Etiquetado `v1.0`)**
+
+##  Registro de Prompts de Inteligencia Artificial (IA Log)
+
+A continuación se detallan las consultas principales realizadas al asistente de Inteligencia Artificial durante la ejecución del proyecto y su utilidad específica en el desarrollo:
+
+| \# | Prompt Utilizado | Propósito / Resultado | 
+| ----- | ----- | ----- | 
+| **1** | *"¿En qué parte del style lo pongo?"* (junto a la instrucción del scroll fix) | Determinación de la ubicación idónea (`css/styles.css`) para aplicar la propiedad `max-height` y `overflow-y` al modal `dialog`. | 
+| **2** | *"git add style.css fatal: pathspec 'style.css' did not match any files... ¿qué pasó?"* | Diagnóstico de error de ruta en terminal de Git y resolución mediante `git add .` apuntando a `css/styles.css`. | 
+| **3** | *"Para el día dos, tenemos los módulos pero nos hace falta instrumentos, programas, herramientas, recursos con enlaces y evidencias del año, entonces ¿qué hacemos? Dame ejemplos."* | Definición del esquema JSON/JS en `data/modulos.js` y estructuración del contenido técnico de las fichas. | 
+| **4** | *"Para el módulo 1, pondré práctica 1 Introducción a la POO y pondré práctica 4 aplicaciones web con SQL."* | Adaptación de evidencias prácticas específicas al modelo de datos del Módulo 1. | 
+| **5** | *"Para el módulo 3.4 pondré un manual de usuario, manual técnico y de sistema por drive... Ponlos en como tres títulos diferentes."* | División de evidencias documentales en 3 entradas independientes dentro del arreglo de evidencias del Módulo 3.4. | 
+| **6** | *"Analiza esta página y dinos qué es lo que tenemos que hacer para este día \[Día 3\] en nuestro sistema."* | Desglose y planificación del plan de trabajo del Día 3 (Quiz, Modo Oscuro, Lighthouse, README y Tag `v1.0`). | 
+| **7** | *"Se nos olvidó añadir dos módulos más que son el 3.5 y el 3.7, dile a Copilot que agregue esos módulos más y que los haga igual a los que ya hemos creado..."* | Redacción de prompt estructurado para GitHub Copilot para la autogeneración de los módulos 3.5 y 3.7. | 
+
+##  Instrucciones para Ejecución Local
+
+1. Clonar el repositorio:
+
+   ```
+   git clone https://github.com/valeria857/hub-3ds-a.git
+   
+   ```
+
+2. Navegar al directorio del proyecto:
+
+   ```
+   cd hub-3ds-a
+   
+   ```
+
+3. Abrir el archivo `index.html` en el navegador web o utilizar la extensión **Live Server** en Visual Studio Code.
+
+*Desarrollado para la Feria de Portales del 3.º DS «A» · INDEL 2026*
